@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Удалить сообщение</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 card p-4 shadow-sm border-danger">
+            <h3 class="text-danger mb-3">Вы уверены?</h3>
+            <p>Вы действительно хотите удалить это сообщение?</p>
+            <blockquote class="blockquote bg-light p-3 rounded" style="font-size: 1rem;">
+                "{{ message.text }}"
+            </blockquote>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Да, удалить</button>
+                <a href="{% url 'chat' %}" class="btn btn-secondary">Отмена</a>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
